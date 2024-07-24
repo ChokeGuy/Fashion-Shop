@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html,
+body {
+  min-height: 100vh;
+  --primary-color: #1a4845;
+  --secondary-color: rgb(71, 180, 134);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ovveride CSS */
+.carousel.carousel-slider {
+  position: relative;
+  margin: 0;
+  overflow: visible !important;
+}
+
+.carousel .control-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  bottom: 10px !important;
+}
+.carousel-container {
+  width: 100%;
+  padding: 1rem;
+  column-gap: 1rem;
+}
+.carousel-container-2 {
+  display: flex;
+  width: 100%;
+  padding: 1rem 0.8rem;
+  column-gap: 1rem;
+}
+
+.carousel-item {
+  padding: 0.75rem;
+}
+.carousel-item2 {
+  padding: 0.5rem;
+}
+.carousel-item3 {
+  padding: 0.15rem;
+}
+
+.react-multi-carousel-track
+  .react-multi-carousel-item.carousel-item2:nth-child(4) {
+  margin-left: 4px;
+}
+.react-multi-carousel-track {
+  margin: -1rem !important;
+}
+
+@media (max-width: 400px) {
+  .react-multi-carousel-track {
+    margin: -19px !important;
+  }
+}
+
+[class*="react-multiple-carousel"] {
+  background-color: black !important;
+  border-radius: 0 !important;
+  top: 35% !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+}
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+  left: 1px !important;
+  z-index: 10 !important;
+}
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+  right: 1px !important;
+  z-index: 10 !important;
+}
+[class*="react-multiple-carousel"]:hover {
+  background-color: #47b486 !important;
+}
+
+.MuiTabs-indicator {
+  color: green;
+}
+/* Remove number input increment/decrement buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Custom CSS */
+@layer components {
+  .myarrow {
+    @apply absolute z-[0] cursor-pointer bottom-[60%] bg-background size-14 rounded-full
+    md:grid place-items-center translate-y-10 transition-all hidden;
+  }
+  .my-button {
+    @apply bg-black rounded-full text-white px-4 py-2 grid place-items-center cursor-pointer transition-all;
+  }
+  .left-right-line {
+    @apply relative  before:bg-text-light-color
+      before:absolute before:top-1/2 before:w-[140px] before:left-0
+      before:h-[1px] after:bg-text-light-color after:absolute 
+      after:top-1/2 after:w-[140px] after:right-0 after:h-[1px];
+  }
+  .bottom-right-triangle {
+    @apply w-0 h-0 absolute bottom-0 right-0 border-b-[1rem] border-b-primary-color border-l-[1rem] border-l-transparent;
+  }
+}
+/* Custom error field for formik and mui */
+.error-field {
+  border: 1px solid red;
+}
+
+/* Verify Code Input */
+.vi {
+  box-shadow: none !important;
+}
+.verify-container {
+  border: none;
+}
+.verify-character {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
+  line-height: 0;
+  height: 85% !important;
+}
+:where(.vi__character--selected) {
+  outline: 2px solid #8e71ff !important;
+  color: black !important;
+}
+.verify-character-inactive {
+  background-color: white;
+}
+.character--selected {
+  position: relative;
+}
+
+/* optionally hide placeholder (in case it overlaps the cursor) */
+.character--selected:not(.character--filled) {
+  color: transparent;
+}
+
+.character--selected:not(.character--filled)::after {
+  content: "";
+  width: 1px;
+  height: 25px;
+  background-color: #333;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 1s infinite step-end;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+input:focus,
+input:where(:not([type])):focus {
+  outline: none;
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width))
+    var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-width: 2px !important;
+  border-color: var(--primary-color) !important;
+}
+[type="radio"]:focus {
+  box-shadow: none !important;
+}
+[type="radio"]:checked {
+  background-color: var(--primary-color) !important;
+  border-color: none !important;
+  background-color: currentColor;
+}
+
+/* Mui Pagination Custom CSS */
+.MuiPaginationItem-colorPrimary {
+  color: var(--primary-color);
+}
+.MuiPaginationItem-outlined {
+  border: 1px solid #ccc;
+}
+.MuiPaginationItem-ellipsis {
+  border: none;
+}
+.MuiPaginationItem-outlinedPrimary.Mui-selected {
+  color: white;
+  background-color: rgba(71, 180, 134, 0.5);
+  border: 1px solid var(--secondary-color);
+}
+
+.MuiPagination-ul {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+/* Mui Collapse Custom CSS */
+.MuiCollapse-wrapperInner.MuiCollapse-vertical {
+  display: flex;
+  row-gap: 0.5rem;
+  flex-direction: column;
+}
+
+/* Mui Avatar Custom CSS */
+.MuiAvatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: center;
+}
+.vi:focus {
+  box-shadow: none !important;
+}
+.MuiOutlinedInput-input:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+.MuiDialogContent-root.mui-ypiqx9-MuiDialogContent-root {
+  overflow: visible !important;
+}
+.MuiDateRangeCalendar-root > div:first-child {
+  /* Your styles here */
+  visibility: hidden;
+}
+
+.MuiTiptap-RichTextField-menuBar {
+  position: inherit !important;
+}
+.MuiTiptap-RichTextContent-root.MuiTiptap-RichTextField-content {
+  padding: 1.5rem !important;
+}
